@@ -1,0 +1,79 @@
+<div class="my-container mx-auto border border-dark">
+    <section class="m-3 p-4 border border-dark my-rounded-corner">
+        <h4 class="w-25 border border-secondary text-center py-2 my-rounded-corner">Payment Info</h4>
+        <table class="table w-50 mx-auto table-bordered table-hover my-shadow">
+            <tbody>
+                <tr>
+                    <td>Total-items</td>
+                    <td class="fs-5 fw-bold">5</td>
+                </tr>
+                <tr>
+                    <td>Total-prices</td>
+                    <td class="fs-5 fw-bold text-danger">10,000</td>
+                </tr>
+                <tr>
+                    <td>Shipping charges</td>
+                    <td class="fs-5 fw-bold text-danger" >1,000</td>
+                </tr>
+                <tr>
+                    <td>Discount</td>
+                    <td class="fs-5 fw-bold text-primary">200</td>
+                </tr>
+                <tr>
+                    <td>You have to pay</td>
+                    <td class="fs-5 fw-bold text-primary">10,800</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+
+    <section class="m-3 p-4 border border-dark my-rounded-corner">
+        <h4 class="w-25 border border-secondary text-center py-2 my-rounded-corner">Payment Method</h4>
+        <div class="d-flex justify-content-center align-items-center">
+            <h5 class="me-4">Select any Method</h5>
+            <select class="form-select w-25">
+                <option value="0">Open this selected menu</option>
+                <option *ngFor="let paymentmethod of [1,2,3]" value="{{paymentmethod}}">option</option>
+                
+            </select>
+        </div>
+
+    </section>
+
+    <section class="m-3 p-4 border border-dark my-rounded-corner">
+        <h4 class="w-25 border border-secondary text-center py-2 my-rounded-corner">Proceed to payments</h4>
+        <div class="mt-4 w-50" *ngIf="selectedpaymentmethod!==''" >
+            <div class="table table-border my-shadow">
+                <thead>
+                    <tr>
+                        <td>You have to pay : </td>
+                        <td>10,500</td>
+                    </tr>
+                    <tr>
+                        <td>Payment method :</td>
+                        <td>UPI - Phonepay</td>
+
+                    </tr>
+                    <tr>
+                        <td>Address : </td>
+                        <td *ngIf="true">my addres will go here <a routerLink="/account-settings">change</a></td>
+                        <td *ngIf!="true">
+                            You have not entered the address
+                            <a routerLink="/account-settings">Please enter that</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mobile number : </td>
+                        <td *ngIf="true">6383426523 <a routerLink="/account-settings">change</a></td>
+                        <td *ngIf!="true">
+                            You have not entered Mobile number
+                            <a routerLink="/account-settings">Please enter that</a>
+                        </td>
+                    </tr>
+                </thead>
+            </div>
+        </div>
+    </section>
+
+</div>
