@@ -32,7 +32,7 @@
         <h4 class="w-25 border border-secondary text-center py-2 my-rounded-corner">Payment Method</h4>
         <div class="d-flex justify-content-center align-items-center">
             <h5 class="me-4">Select any Method</h5>
-            <select class="form-select w-25">
+            <select class="form-select w-25" [formControl]="selectedPaymentMethod">
                 <option value="0">Open this selected menu</option>
                 <option *ngFor="let paymentmethod of [1,2,3]" value="{{paymentmethod}}">option</option>
                 
@@ -43,8 +43,9 @@
 
     <section class="m-3 p-4 border border-dark my-rounded-corner">
         <h4 class="w-25 border border-secondary text-center py-2 my-rounded-corner">Proceed to payments</h4>
-        <div class="mt-4 w-50" *ngIf="selectedpaymentmethod!==''" >
-            <div class="table table-border my-shadow">
+        <div class="mt-4 w-50" *ngIf="selectedPaymentMethodName!==''" >
+            <table class="table table-border my-shadow">
+
                 <thead>
                     <tr>
                         <td>You have to pay : </td>
@@ -53,7 +54,6 @@
                     <tr>
                         <td>Payment method :</td>
                         <td>UPI - Phonepay</td>
-
                     </tr>
                     <tr>
                         <td>Address : </td>
@@ -73,8 +73,24 @@
                         </td>
                     </tr>
                 </thead>
+            </table>
+
+            <div class="d-grid w-50">
+                <button class="btn btn-outline-success mb-4">
+                    pay
+                </button>
+            </div>
+            <div class="processing">
+                <div class="spinner-border me-4" role="status" *ngIf="true">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <h6 class="m-0">error</h6>
             </div>
         </div>
     </section>
+
+    <div *ngIf="!false" class="pt-4">
+        <h2>You have not Logged in</h2>
+    </div>
 
 </div>

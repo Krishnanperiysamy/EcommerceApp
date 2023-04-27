@@ -10,3 +10,8 @@ export interface SuggestedProduct{
     category : Category;
 
 }
+
+export interface NavigationItem{
+    category : string;
+    subcategories : string[];
+}
