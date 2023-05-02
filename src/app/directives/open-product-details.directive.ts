@@ -9,7 +9,7 @@ export class OpenProductDetailsDirective {
   @Input() productId: number = 0;
   @HostListener('click') openProductDetails(){
     window.scrollTo(0,0);
-    this.router.navigate(['/product-details'],{
+    this.router.navigate(['/productdetails'],{
       queryParams:{
         id:this.productId,
       },

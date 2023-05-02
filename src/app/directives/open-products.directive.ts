@@ -14,6 +14,7 @@ export class OpenProductsDirective {
   }
 
   @HostListener('click') openProducts(){
+    
     this.router.navigate(['/products'],{
       queryParams:{
        category: this.category.category,
